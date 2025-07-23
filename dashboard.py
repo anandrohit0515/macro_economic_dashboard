@@ -1,13 +1,16 @@
 import streamlit as st
+import os
 import pandas as pd
 import plotly.express as px
+   
 
 # Set Streamlit config
 st.set_page_config(page_title="WEO GDP Dashboard", layout="wide")
 st.title("🌍 World GDP Dashboard (1980–2030)")
 
-# Load the data
-df = pd.read_csv("/Users/gaurikanand/macro_economic_dashboard/data/WEO_Filter.csv")
+# Dynamically find path to the CSV file relative to script location
+file_path = os.path.join(os.path.dirname(__file__), "data", "WEO_Filter.csv")
+df = pd.read_csv(file_path)
 
 # Convert year columns to numeric (if needed)
 year_columns = [col for col in df.columns if col.isdigit()]
