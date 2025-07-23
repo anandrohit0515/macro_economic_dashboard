@@ -1,0 +1,5 @@
+#macOS system files
+.DS
+
+#python virtual environment
+venv/
